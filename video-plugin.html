@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+	<html lang="en-US">
+		<head>
+			<meta charset="UTF-8" />			
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Video Plugin</title>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<style>
+				.video-section {width:80%; height: 500px; margin:0 auto; background-color: #000;}
+				.main-video {float: left; width: 75%; box-sizing: border-box; height: 100%;}
+				.main-video video {width: 100%; height: 100%;}
+				.video-series {float: right; width: 25%; height: 100%; box-sizing: border-box;}
+				.video-series ul {width: 100%; margin: 0 auto; padding:0px; box-sizing: border-box; height: 100%; overflow-x: hidden; overflow-y: auto;}
+				.video-series ul li {display: block; width: 100%; height: 100px; margin: 0 auto; border: 1px solid #000; padding:5px 10px; box-sizing: border-box;}
+				.video-series li a {display: block; height: 100%; width: 100%;}
+				.video-series li a img {width: 100%; height: 100%; display: block;}
+			</style>
+		</head>
+		<body>
+			<div class="video-section">
+				<div class="main-video">
+					<video id="video_player" controls autoplay="true">
+					  <source src="https://archive.org/download/WebmVp8Vorbis/webmvp8_512kb.mp4" type="video/mp4">
+					  <source src="mov_bbb.ogg" type="video/ogg">
+					  Your browser does not support HTML5 video.
+					</video>
+				</div>
+				<div class="video-series">
+					<ul>
+						<li data-video="assets/images/demovideo.mp4"><a href="javascript:void(0);"><img src="assets/images/poster1.jpg" alt="image"></a></li>
+						<li data-video="assets/images/demovideo2.mp4" ><a href="javascript:void(0);"><img src="assets/images/poster2.jpg" alt="image"></a></li>
+						<li data-video="assets/images/demovideo3.mp4" ><a href="javascript:void(0);"><img src="assets/images/poster3.jpg" alt="image"></a></li>
+						<li data-video="assets/images/demovideo4.mp4" ><a href="javascript:void(0);"><img src="assets/images/poster4.jpg" alt="image"></a></li>
+						<li data-video="assets/images/demovideo5.mp4" ><a href="javascript:void(0);"><img src="assets/images/poster5.jpg" alt="image"></a></li>
+						<li data-video="assets/images/demovideo4.mp4" ><a href="javascript:void(0);"><img src="assets/images/poster3.jpg" alt="image"></a></li>
+						<li data-video="assets/images/demovideo3.mp4" ><a href="javascript:void(0);"><img src="assets/images/poster4.jpg" alt="image"></a></li>
+						<li data-video="assets/images/demovideo5.mp4" ><a href="javascript:void(0);"><img src="assets/images/poster5.jpg" alt="image"></a></li>
+						<li data-video="assets/images/demovideo1.mp4" ><a href="javascript:void(0);"><img src="assets/images/poster1.jpg" alt="image"></a></li>
+						<li data-video="assets/images/demovideo2.mp4" ><a href="javascript:void(0);"><img src="assets/images/poster2.jpg" alt="image"></a></li>
+					</ul>
+				</div>
+			</div>
+			<script>
+				(function() {
+					$(document).on("click", ".video-series ul li", function() {
+						var currentVideoSrc = $(this).data("video");
+						$(".main-video").find("#video_player").attr("src", currentVideoSrc);
+					});
+				})(jQuery);
+			</script>
+		</body>
+	</html>
